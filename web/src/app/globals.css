@@ -1,0 +1,56 @@
+/*
+ * Global stylesheet.
+ *
+ * Design tokens are the project's single visual-value source of truth
+ * (AGENTS.md §11.1). `dist/tokens.css` is GENERATED and COMMITTED by the token
+ * pipeline at the repository root — this file only imports it. Do not add
+ * colours, spacing, shadows, or typography values here, and do not introduce a
+ * second token system.
+ *
+ * The import path walks out of web/src/app to the repository root. Regenerate
+ * the tokens from the repository root with `npm run build`; verify with
+ * `npm run check`.
+ */
+
+@import "../../../dist/tokens.css";
+
+/*
+ * Minimal base layer for the bootable shell.
+ *
+ * These are resets and a font stack only — no component styling. The product's
+ * real UI is not implemented yet, and the state-specific treatments required by
+ * AGENTS.md §11.2 (pending vs confirmed payment, sold-out tiers, search
+ * empty/multiple-match states, check-in conflicts) belong to later work.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /*
+   * Token coverage gap, recorded rather than papered over (AGENTS.md §11.1):
+   * the current token export defines no `background`, `surface`, `text`, or
+   * `outline` roles — only the key-colour roles and their `on ...` pairs. This
+   * is a pre-existing finding in the token source (see README.md, "No surface
+   * roles exist"). The nearest available role pair is used below instead of
+   * hardcoding a hex value. This should be closed in the token source
+   * (design-tokens.tokens.json), not patched here.
+   */
+  background-color: var(--ds-color-primary-container);
+  color: var(--ds-color-on-primary-container);
+  font-family:
+    var(--ds-typography-body-large-font-family),
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  font-size: var(--ds-typography-body-large-font-size);
+  line-height: var(--ds-typography-body-large-line-height);
+}

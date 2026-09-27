@@ -1,0 +1,385 @@
+// Prisma schema — event ticketing platform (PRD v2 §7).
+//
+// Source of truth: docx/event-ticketing-platform-prd-v2.md §7.2 (fields,
+// types, required-ness, referential actions, constraints, indexes) and §9
+// (lifecycles). Engineering rules: .agents/rules/02-domain-model-and-data-integrity.md.
+//
+// CONVENTIONS
+//   - Prisma field names are camelCase; every field is `@map`ped to the exact
+//     snake_case column name used in PRD §7.2, so the database contract is
+//     preserved verbatim.
+//   - Primary keys are database-generated UUIDv4 (`gen_random_uuid()`), never
+//     client-supplied (rule 02: "No client-supplied value may ever become a
+//     primary key"). Non-sequential by construction.
+//   - All timestamps are `timestamptz(3)` (product-owner decision 2026-09-26).
+//   - DB defaults appear ONLY where PRD §7.2 states one (Event.status `draft`,
+//     TicketType counters `0`, CheckIn.is_override `false`, and
+//     Payment.requires_reconciliation). Lifecycle statuses deliberately have no
+//     default: the PRD annotates defaults where it wants them, so the
+//     application must supply them explicitly.
+//   - `updated_at` is application-maintained (no trigger); it defaults to
+//     `now()` so it can never be null.
+//
+// WHAT IS *NOT* IN THIS FILE
+//   Prisma's schema language cannot express CHECK constraints, partial/filtered
+//   indexes, or triggers. Those required guarantees live in the SQL migrations
+//   under prisma/migrations/:
+//     - TicketType inventory CHECK constraints
+//     - CheckIn "exactly one actor" CHECK constraint
+//     - partial UNIQUE index: one successful Payment per Registration
+//     - forbidden-transition triggers (Registration §9.2, Payment §9.1)
+//     - append-only triggers on Check-in (§9.4, §14)
+//     - Registration.event_id must match its TicketType.event_id
+//   They are load-bearing, Prisma does not model them, and they must be carried
+//   forward BY HAND into any future migration that touches these tables.
+//   Verify with: npm run db:verify-constraints
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ---------------------------------------------------------------------------
+// Enums — PRD §7.2 / §9, exactly. No invented values (rule 02).
+// ---------------------------------------------------------------------------
+
+enum EventStatus {
+  draft
+  published
+  closed
+
+  @@map("event_status")
+}
+
+enum RegistrationStatus {
+  pending_payment
+  confirmed
+  checked_in
+  cancelled
+  refunded
+
+  @@map("registration_status")
+}
+
+enum PaymentStatus {
+  initiated
+  processing
+  success
+  failed
+  pending
+
+  @@map("payment_status")
+}
+
+enum AttendeeRequestStatus {
+  open
+  resolved
+
+  @@map("attendee_request_status")
+}
+
+// ---------------------------------------------------------------------------
+// Entities — PRD §7.2. Nine entities, no N:N relationships (§7.3).
+// ---------------------------------------------------------------------------
+
+/// PRD §7.2 `Organiser`: "id, email (unique), password_hash or auth_provider_id,
+/// created_at".
+///
+/// The EITHER/OR is now resolved: product-owner decision 1 (2026-09-26) chose
+/// **email + password** with a server-side session. `password_hash` is therefore
+/// the live credential and `auth_provider_id` is retained but unused — no OAuth,
+/// SSO, or magic-link flow was built, and this pass added none. The column stays
+/// because §7.2 specifies it, not because anything reads it.
+model Organiser {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email          String   @unique(map: "organisers_email_key")
+  passwordHash   String?  @map("password_hash")
+  authProviderId String?  @map("auth_provider_id")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  events     Event[]
+  checkIns   CheckIn[]
+  editLogs   EventEditLog[]
+  sessions   OrganiserSession[]
+
+  @@map("organisers")
+}
+
+/// Product-owner decision 1 (2026-09-26): a server-side organiser session.
+///
+/// Not a PRD §7.2 entity — a session store is the necessary consequence of
+/// choosing a server-side session over a self-contained token. Only the SHA-256
+/// hash of the token is stored; the plaintext lives in an httpOnly cookie and is
+/// never persisted or logged (AGENTS.md §14).
+///
+/// `onDelete: Cascade`, deliberately unlike `EventEditLog`'s `Restrict`: a session
+/// is ephemeral auth state, not audit evidence, and must not make an organiser
+/// undeletable because somebody is still logged in.
+model OrganiserSession {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  organiserId String   @map("organiser_id") @db.Uuid
+  tokenHash   String   @unique(map: "organiser_sessions_token_hash_key") @map("token_hash")
+  expiresAt   DateTime @map("expires_at") @db.Timestamptz(3)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  organiser Organiser @relation(fields: [organiserId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("organiser_sessions")
+}
+
+/// PRD §7.2 `Event`. `deleted_at` is the ONLY soft-delete field in the schema
+/// (rule 02).
+///
+/// `description` is nullable: product-owner decision 4 (2026-09-26) made it
+/// optional. PRD §7.2 L181 marks it Required, so the schema deliberately diverges
+/// from the field table — reported in the task report, not silently absorbed.
+///
+/// The length limits below are enforced by CHECK constraints in migration
+/// `20260926000300_auth_and_event_limits`, not expressible in Prisma's schema
+/// language. They are the same numbers the validation layer uses.
+model Event {
+  id          String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  organiserId String       @map("organiser_id") @db.Uuid
+  name        String
+  slug        String       @unique(map: "events_slug_key")
+  description String?
+  startsAt    DateTime     @map("starts_at") @db.Timestamptz(3)
+  endsAt      DateTime     @map("ends_at") @db.Timestamptz(3)
+  venue       String
+  status      EventStatus  @default(draft)
+  createdAt   DateTime     @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime     @default(now()) @map("updated_at") @db.Timestamptz(3)
+  deletedAt   DateTime?    @map("deleted_at") @db.Timestamptz(3)
+
+  organiser      Organiser       @relation(fields: [organiserId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  programmeItems ProgrammeItem[]
+  ticketTypes    TicketType[]
+  registrations  Registration[]
+  staffTokens    StaffToken[]
+  editLogs       EventEditLog[]
+
+  @@index([organiserId, status], map: "events_organiser_id_status_idx")
+  @@map("events")
+}
+
+/// PRD §14 L420 / §20 L501: organiser edits to a *published* event are logged
+/// with what changed and when. BR-6 (L158) requires answering "why did this
+/// change", so `changes` stores a before AND after value per changed field, not
+/// just the list of touched fields.
+///
+/// Product-owner decision R-3 (2026-09-26): PRD §7.2 defines NO log entity, so
+/// this model is an approved addition, not a transcription. `organiser_id` is
+/// carried per row (not derived via the event) so the log records *who* edited,
+/// which is the point of the audit trail. Both FKs are `RESTRICT`: a log row is
+/// permanent evidence, so neither its event nor its author may be removed.
+///
+/// Append-only is enforced by triggers, mirroring `CheckIn` (§9.4) — see
+/// migration `20260926000200_event_edit_log`.
+model EventEditLog {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  eventId     String   @map("event_id") @db.Uuid
+  organiserId String   @map("organiser_id") @db.Uuid
+  changedAt   DateTime @default(now()) @map("changed_at") @db.Timestamptz(3)
+  /// `{ "<field>": { "from": "<before>", "to": "<after>" } }`, one entry per field
+  /// that actually changed. Timestamps are ISO-8601 strings. Non-empty object.
+  changes     Json     @db.JsonB
+
+  event     Event     @relation(fields: [eventId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  organiser Organiser @relation(fields: [organiserId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([eventId, changedAt(sort: Desc)], map: "event_edit_logs_event_id_changed_at_idx")
+  @@map("event_edit_logs")
+}
+
+/// PRD §7.2 `ProgrammeItem`. `event_id` cascades.
+model ProgrammeItem {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  eventId     String    @map("event_id") @db.Uuid
+  sortOrder   Int       @map("sort_order")
+  time        DateTime? @db.Timestamptz(3)
+  title       String
+  description String?
+  createdAt   DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt   DateTime  @default(now()) @map("updated_at") @db.Timestamptz(3)
+
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@index([eventId, sortOrder], map: "programme_items_event_id_sort_order_idx")
+  @@map("programme_items")
+}
+
+/// PRD §7.2 `TicketType`.
+///
+/// `event_id` is declared CASCADE here, not RESTRICT. PRD §7.2 says "RESTRICT
+/// on delete if Registrations exist" — a conditional action. A plain RESTRICT
+/// would instead block deleting ANY event that still has a tier, even a
+/// registration-free one, which is not what the PRD says. CASCADE plus
+/// `Registration.ticket_type_id → RESTRICT` reproduces the documented
+/// semantics exactly: deleting an event cascades to its tiers, and is blocked
+/// precisely when a registration still references one.
+///
+/// The two inventory CHECK constraints are in the SQL migration (Prisma cannot
+/// express CHECK).
+model TicketType {
+  id                String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  eventId           String   @map("event_id") @db.Uuid
+  name              String
+  description       String?
+  priceMinorUnits   Int      @map("price_minor_units")
+  currency          String   @db.VarChar(3)
+  quantityTotal     Int      @map("quantity_total")
+  quantityConfirmed Int      @default(0) @map("quantity_confirmed")
+  quantityHeld      Int      @default(0) @map("quantity_held")
+  createdAt         DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt         DateTime @default(now()) @map("updated_at") @db.Timestamptz(3)
+
+  event         Event          @relation(fields: [eventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  registrations Registration[]
+
+  @@unique([eventId, name], map: "ticket_types_event_id_name_key")
+  @@index([eventId], map: "ticket_types_event_id_idx")
+  @@map("ticket_types")
+}
+
+/// PRD §7.2 `Registration`.
+///
+/// Deliberate denormalisation no. 1: `status` caches `confirmed` / `checked_in`
+/// as a projection of the append-only Check-in log (PRD §7.4). The Check-in
+/// table stays the source of truth; the cached value must be written in the same
+/// transaction as any Check-in insert (rule 02).
+///
+/// `status` has NO database default — PRD §7.2 does not state one.
+model Registration {
+  id              String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  eventId         String             @map("event_id") @db.Uuid
+  ticketTypeId    String             @map("ticket_type_id") @db.Uuid
+  uniqueReference String             @unique(map: "registrations_unique_reference_key") @map("unique_reference")
+  attendeeName    String             @map("attendee_name")
+  attendeeEmail   String             @map("attendee_email")
+  attendeePhone   String             @map("attendee_phone")
+  status          RegistrationStatus @map("status")
+  idempotencyKey  String             @unique(map: "registrations_idempotency_key_key") @map("idempotency_key")
+  createdAt       DateTime           @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime           @default(now()) @map("updated_at") @db.Timestamptz(3)
+
+  event            Event             @relation(fields: [eventId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  ticketType       TicketType        @relation(fields: [ticketTypeId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  payments         Payment[]
+  checkIns         CheckIn[]
+  attendeeRequests AttendeeRequest[]
+
+  @@index([eventId, attendeeName], map: "registrations_event_id_attendee_name_idx")
+  @@index([eventId, status], map: "registrations_event_id_status_idx")
+  @@map("registrations")
+}
+
+/// PRD §7.2 `Payment`. 1:N with Registration (PRD §7.3 — v1's core bug was 1:1).
+///
+/// `requires_reconciliation` is the one column not in PRD §7.2. It was added by
+/// product-owner decision 2026-09-26 (rule 03 R-1) to give the queryable
+/// reconciliation state that §8.5/§11/§15 require a home, without inventing an
+/// enum value or an entity. It is a FLAG: it never appears in `status`.
+///
+/// The partial UNIQUE index enforcing "at most one successful attempt per
+/// registration" (AGENTS.md §5) is in the SQL migration — Prisma cannot express
+/// a filtered index.
+model Payment {
+  id                       String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  registrationId           String        @map("registration_id") @db.Uuid
+  providerReference        String        @unique(map: "payments_provider_reference_key") @map("provider_reference")
+  expectedAmountMinorUnits Int           @map("expected_amount_minor_units")
+  verifiedAmountMinorUnits Int?          @map("verified_amount_minor_units")
+  currency                 String        @db.VarChar(3)
+  status                   PaymentStatus @map("status")
+  verifiedAt               DateTime?     @map("verified_at") @db.Timestamptz(3)
+  requiresReconciliation   Boolean       @default(false) @map("requires_reconciliation")
+  rawProviderPayload       Json?         @map("raw_provider_payload")
+  createdAt                DateTime      @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt                DateTime      @default(now()) @map("updated_at") @db.Timestamptz(3)
+
+  registration Registration @relation(fields: [registrationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([registrationId], map: "payments_registration_id_idx")
+  @@map("payments")
+}
+
+/// PRD §7.2 `Check-in` — an append-only event log, never a status field.
+///
+/// DELIBERATE DIVERGENCE FROM PRD §7.2 (product-owner decision 2026-09-26,
+/// item 1). §7.2 specifies a single `checked_in_by` described as
+/// "FK → StaffToken or Organiser". One FK column cannot safely reference two
+/// tables: Postgres has no polymorphic foreign key, and a bare UUID column with
+/// no FK would discard the referential integrity AGENTS.md §5 requires. The
+/// field is therefore split into two nullable FKs, `organiser_id` and
+/// `staff_token_id`, with a CHECK constraint in the SQL migration requiring
+/// EXACTLY ONE to be non-null. The business meaning is unchanged: a check-in is
+/// performed by either an organiser or an event-scoped staff token.
+///
+/// Rows are never updated or deleted (PRD §14), so there is no `updated_at`
+/// here — §7.2 grants `created_at` only. `checked_in_at` is the business event
+/// time and is deliberately distinct from `created_at` (row-insertion time).
+model CheckIn {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  registrationId String   @map("registration_id") @db.Uuid
+  checkedInAt    DateTime @map("checked_in_at") @db.Timestamptz(3)
+  organiserId    String?  @map("organiser_id") @db.Uuid
+  staffTokenId   String?  @map("staff_token_id") @db.Uuid
+  isOverride     Boolean  @default(false) @map("is_override")
+  createdAt      DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  registration Registration @relation(fields: [registrationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  organiser    Organiser?   @relation(fields: [organiserId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  staffToken   StaffToken?  @relation(fields: [staffTokenId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([registrationId, checkedInAt(sort: Desc)], map: "check_ins_registration_id_checked_in_at_idx")
+  @@map("check_ins")
+}
+
+/// PRD §7.2 `Attendee Request / Issue`. Rows and their resolutions are retained,
+/// never deleted (PRD §14). §7.2 grants `created_at` and `resolved_at` only.
+model AttendeeRequest {
+  id              String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  registrationId  String                @map("registration_id") @db.Uuid
+  message         String
+  status          AttendeeRequestStatus @map("status")
+  resolutionNotes String?               @map("resolution_notes")
+  idempotencyKey  String                @unique(map: "attendee_requests_idempotency_key_key") @map("idempotency_key")
+  createdAt       DateTime              @default(now()) @map("created_at") @db.Timestamptz(3)
+  resolvedAt      DateTime?             @map("resolved_at") @db.Timestamptz(3)
+
+  registration Registration @relation(fields: [registrationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@map("attendee_requests")
+}
+
+/// PRD §7.2 `StaffToken` — an event-scoped credential, NOT an account.
+///
+/// Only a HASH is stored. The plaintext is shown once at creation, if at all,
+/// and is never persisted (rule 02, rule 05, rule 08). The hashing algorithm
+/// and the token transport both follow the still-open staff-token decision
+/// (PRD §19) and are deliberately not fixed here.
+///
+/// `UNIQUE(token_hash)` is required so the column can serve as the staff-auth
+/// lookup key; §7.2 does not list it (product-owner decision 2026-09-26,
+/// item 4).
+///
+/// Revocation sets `revoked_at`; the row is never deleted, so a check-in that
+/// references this token can never lose its actor (PRD §14, rule 05).
+model StaffToken {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  eventId   String    @map("event_id") @db.Uuid
+  tokenHash String    @unique(map: "staff_tokens_token_hash_key") @map("token_hash")
+  label     String
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz(3)
+  revokedAt DateTime? @map("revoked_at") @db.Timestamptz(3)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  event    Event     @relation(fields: [eventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  checkIns CheckIn[]
+
+  @@map("staff_tokens")
+}

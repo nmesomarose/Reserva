@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+<marker id="arr-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2E7D32"/></marker>
+<marker id="arr-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#B3261E"/></marker>
+</defs>
+<rect width="1600" height="900" fill="#FFFFFF"/>
+<text x="40" y="34" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#1B1B1F">Reserva — Registration &amp; Payment lifecycle (PRD v2 §9.1/§9.2, rule 03)</text>
+
+<text x="200" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#2215D6">Registration</text>
+<text x="1220" y="70" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#2215D6">Payment</text>
+<rect x="125" y="129" width="150" height="42" rx="21" fill="#EEF2FF" stroke="#2215D6" stroke-width="1.6"/>
+<text x="200" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#2215D6">pending_payment</text><rect x="355" y="129" width="150" height="42" rx="21" fill="#E7F5E8" stroke="#2E7D32" stroke-width="1.6"/>
+<text x="430" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#2E7D32">confirmed</text><rect x="585" y="129" width="150" height="42" rx="21" fill="#E7F5E8" stroke="#2E7D32" stroke-width="1.6"/>
+<text x="660" y="154" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#2E7D32">checked_in</text><rect x="355" y="299" width="150" height="42" rx="21" fill="#FDECEA" stroke="#B3261E" stroke-width="1.6"/>
+<text x="430" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#B3261E">cancelled</text><rect x="585" y="299" width="150" height="42" rx="21" fill="#FDECEA" stroke="#B3261E" stroke-width="1.6"/>
+<text x="660" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#B3261E">refunded</text><rect x="945" y="99" width="150" height="42" rx="21" fill="#EEF2FF" stroke="#2215D6" stroke-width="1.6"/>
+<text x="1020" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#2215D6">initiated</text><rect x="1145" y="99" width="150" height="42" rx="21" fill="#EEF2FF" stroke="#2215D6" stroke-width="1.6"/>
+<text x="1220" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#2215D6">processing</text><rect x="1345" y="99" width="150" height="42" rx="21" fill="#E7F5E8" stroke="#2E7D32" stroke-width="1.6"/>
+<text x="1420" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#2E7D32">success</text><rect x="1145" y="279" width="150" height="42" rx="21" fill="#FDECEA" stroke="#B3261E" stroke-width="1.6"/>
+<text x="1220" y="304" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#B3261E">failed</text><rect x="1145" y="459" width="150" height="42" rx="21" fill="#FFF4E5" stroke="#8A5A00" stroke-width="1.6"/>
+<text x="1220" y="484" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#8A5A00">pending</text><line x1="281" y1="150" x2="349" y2="150" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="265.13826745877236" y1="198.14567594778828" x2="364.86173254122764" y2="271.8543240522117" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="511" y1="150" x2="579" y2="150" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="495.13826745877236" y1="198.14567594778828" x2="594.8617325412276" y2="271.8543240522117" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="430" y1="231" x2="430" y2="239" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="1101" y1="120" x2="1139" y2="120" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="1301" y1="120" x2="1339" y2="120" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="1220" y1="201" x2="1220" y2="219" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="1220" y1="201" x2="1220" y2="399" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="1220" y1="399" x2="1220" y2="381" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="1259.3370774254693" y1="409.1932606341554" x2="1380.6629225745307" y2="190.80673936584458" stroke="#2E7D32" stroke-width="1.6" marker-end="url(#arr-green"/>
+<line x1="430" y1="239" x2="430" y2="231" stroke="#B3261E" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arr-red"/>
+<line x1="495.13826745877236" y1="271.8543240522117" x2="594.8617325412276" y2="198.14567594778828" stroke="#B3261E" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arr-red"/>
+<line x1="660" y1="239" x2="660" y2="231" stroke="#B3261E" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arr-red"/>
+<line x1="579" y1="150" x2="281" y2="150" stroke="#B3261E" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arr-red"/>
+<line x1="1280.2068258460204" y1="245.8138567385816" x2="1359.7931741539796" y2="174.1861432614184" stroke="#B3261E" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arr-red"/>
+<line x1="1345" y1="120" x2="505" y2="150" stroke="#8A5A00" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#arr-green)"/>
+<text x="920" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8A5A00">verified success → confirmed (BR-1)</text><text x="40" y="580" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#1B1B1F">Legend</text><line x1="40" y1="596" x2="90" y2="596" stroke="#2E7D32" stroke-width="1.6"/><text x="100" y="600" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">allowed transition</text><line x1="220" y1="596" x2="270" y2="596" stroke="#B3261E" stroke-width="1.6" stroke-dasharray="7 5"/><text x="280" y="600" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">forbidden (enforced by trigger/CHECK)</text><line x1="560" y1="596" x2="610" y2="596" stroke="#8A5A00" stroke-width="1.6" stroke-dasharray="7 5"/><text x="620" y="600" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">cross-machine link</text><text x="40" y="626" font-family="system-ui, sans-serif" font-size="11" fill="#1B1B1F">Forbidden (DB-enforced, 23514 via trigger): cancelled→confirmed · cancelled/refunded→checked_in · checked_in→pending_payment · Payment failed→success (same row).</text><text x="40" y="644" font-family="system-ui, sans-serif" font-size="11" fill="#1B1B1F">confirmed is reachable ONLY via independently-verified payment success (BR-1). CANCELLED/REFUNDED exist but no refund workflow is built (PRD §20).</text></svg>

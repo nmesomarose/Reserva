@@ -1,0 +1,27 @@
+stateDiagram-v2
+  direction LR
+
+  pending_payment --> confirmed : verified payment success (BR-1)
+  pending_payment --> cancelled : all attempts failed / hold expired
+  confirmed --> checked_in : staff check-in (BR-4, append-only)
+  confirmed --> refunded : no workflow built (PRD §20)
+  confirmed --> cancelled
+
+  initiated --> processing : routed to provider
+  processing --> success : server-verified (BR-1)
+  processing --> failed
+  processing --> pending
+  pending --> success
+  pending --> failed
+
+  success --> confirmed : BR-1 cross-machine link
+
+  note right of confirmed
+    FORBIDDEN transitions — enforced by DB trigger / CHECK (SQLSTATE 23514):
+    - Registration: cancelled → confirmed
+    - Registration: cancelled / refunded → checked_in
+    - Registration: checked_in → pending_payment (no backward transitions)
+    - Payment: failed → success on the same row (create a new Payment instead)
+
+    `confirmed` is reachable ONLY via independently-verified payment success (BR-1).
+  end note

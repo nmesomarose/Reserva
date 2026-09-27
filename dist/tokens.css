@@ -1,0 +1,1512 @@
+/**
+ * Design tokens -> CSS custom properties
+ * ----------------------------------------------------------------------
+ * GENERATED FILE - DO NOT EDIT. Regenerate with:  npm run build
+ *
+ * Source     design-tokens.tokens.json
+ * Prefix     --ds-
+ * Colours    modern   |  units px
+ * Roles emit var() references to primitives
+ *
+ * 403 custom properties from 132 tokens
+ *   16 colour roles          90 primitive colours
+ *   8 spacing steps       15 text styles (180 variables)
+ *   3 shadows             8 contrast pairs checked
+ *
+ * The two tiers of the colour model
+ * ----------------------------------------------------------------------
+ *   --ds-color-*                     semantic ROLES.  Apply these in the UI.
+ *   --ds-color-primitive-*           primitive FOUNDATIONS.  Never in the UI.
+ *
+ * A role points at a primitive, so re-pointing a primitive re-themes the whole
+ * product. Components must only ever read the roles.
+ *
+ * This file is deterministic: no timestamps, no machine paths. Regenerating
+ * from an unchanged source produces an identical file.
+ */
+
+/* ==============================================================================
+ * SEMANTIC COLOUR ROLES
+ * ------------------------------------------------------------------------------
+ * These variables describe intent, not appearance. `--ds-color-primary` stays
+ * whatever the brand colour is; a dark theme, a high contrast theme or a
+ * per-tenant rebrand only has to re-point this block, never the components.
+ *
+ * >> APPLY THESE IN THE UI
+ * ==============================================================================
+ */
+:root {
+  /* Role: primary */
+  /* Figma: colour roles.primary VariableID:145:31 */
+  /* Value: #2215d6  via primitive colour collection.key colour group.primary key colour */
+  --ds-color-primary: var(--ds-color-primitive-key-primary);
+
+  /* Channels of --ds-color-primary - for rgb(var(--ds-color-primary-rgb) / 50%) */
+  --ds-color-primary-rgb: 34 21 214;
+
+  /* Role: on primary */
+  /* Figma: colour roles.on primary VariableID:146:32 */
+  /* Value: #ffffff  via primitive colour collection.primary colour palette.primary 100 */
+  --ds-color-on-primary: var(--ds-color-primitive-primary-100);
+
+  /* Channels of --ds-color-on-primary - for rgb(var(--ds-color-on-primary-rgb) / 50%) */
+  --ds-color-on-primary-rgb: 255 255 255;
+
+  /* Role: primary container */
+  /* Figma: colour roles.primary container VariableID:146:33 */
+  /* Value: #d3d1fa  via primitive colour collection.primary colour palette.primary 90 */
+  --ds-color-primary-container: var(--ds-color-primitive-primary-90);
+
+  /* Channels of --ds-color-primary-container - for rgb(var(--ds-color-primary-container-rgb) / 50%) */
+  --ds-color-primary-container-rgb: 211 209 250;
+
+  /* Role: on primary container */
+  /* Figma: colour roles.on primary container VariableID:146:34 */
+  /* Value: #160e8b  via primitive colour collection.primary colour palette.primary 30 */
+  --ds-color-on-primary-container: var(--ds-color-primitive-primary-30);
+
+  /* Channels of --ds-color-on-primary-container - for rgb(var(--ds-color-on-primary-container-rgb) / 50%) */
+  --ds-color-on-primary-container-rgb: 22 14 139;
+
+  /* Role: secondary */
+  /* Figma: colour roles.secondary VariableID:147:35 */
+  /* Value: #1d12ba  via primitive colour collection.secondary colour palette.secondary40 */
+  --ds-color-secondary: var(--ds-color-primitive-secondary-40);
+
+  /* Channels of --ds-color-secondary - for rgb(var(--ds-color-secondary-rgb) / 50%) */
+  --ds-color-secondary-rgb: 29 18 186;
+
+  /* Role: on secondary */
+  /* Figma: colour roles.on secondary VariableID:147:36 */
+  /* Value: #ffffff  via primitive colour collection.secondary colour palette.secondary100 */
+  --ds-color-on-secondary: var(--ds-color-primitive-secondary-100);
+
+  /* Channels of --ds-color-on-secondary - for rgb(var(--ds-color-on-secondary-rgb) / 50%) */
+  --ds-color-on-secondary-rgb: 255 255 255;
+
+  /* Role: secondary container */
+  /* Figma: colour roles.secondary container VariableID:147:37 */
+  /* Value: #d3d1fa  via primitive colour collection.secondary colour palette.secondary90 */
+  --ds-color-secondary-container: var(--ds-color-primitive-secondary-90);
+
+  /* Channels of --ds-color-secondary-container - for rgb(var(--ds-color-secondary-container-rgb) / 50%) */
+  --ds-color-secondary-container-rgb: 211 209 250;
+
+  /* Role: on secondary container */
+  /* Figma: colour roles.on secondary container VariableID:147:38 */
+  /* Value: #160e8b  via primitive colour collection.secondary colour palette.secondary30 */
+  --ds-color-on-secondary-container: var(--ds-color-primitive-secondary-30);
+
+  /* Channels of --ds-color-on-secondary-container - for rgb(var(--ds-color-on-secondary-container-rgb) / 50%) */
+  --ds-color-on-secondary-container-rgb: 22 14 139;
+
+  /* Role: tertiary */
+  /* Figma: colour roles.tertiary VariableID:147:39 */
+  /* Value: #1e12ba  via primitive colour collection.tertiary colour palette.tertiary 40 */
+  --ds-color-tertiary: var(--ds-color-primitive-tertiary-40);
+
+  /* Channels of --ds-color-tertiary - for rgb(var(--ds-color-tertiary-rgb) / 50%) */
+  --ds-color-tertiary-rgb: 30 18 186;
+
+  /* Role: on tertiary */
+  /* Figma: colour roles.on tertiary VariableID:147:40 */
+  /* Value: #ffffff  via primitive colour collection.tertiary colour palette.tertiary 100 */
+  --ds-color-on-tertiary: var(--ds-color-primitive-tertiary-100);
+
+  /* Channels of --ds-color-on-tertiary - for rgb(var(--ds-color-on-tertiary-rgb) / 50%) */
+  --ds-color-on-tertiary-rgb: 255 255 255;
+
+  /* Role: tertiary container */
+  /* Figma: colour roles.tertiary container VariableID:147:41 */
+  /* Value: #d3d0fb  via primitive colour collection.tertiary colour palette.tertiary 90 */
+  --ds-color-tertiary-container: var(--ds-color-primitive-tertiary-90);
+
+  /* Channels of --ds-color-tertiary-container - for rgb(var(--ds-color-tertiary-container-rgb) / 50%) */
+  --ds-color-tertiary-container-rgb: 211 208 251;
+
+  /* Role: on tertiary container */
+  /* Figma: colour roles.on tertiary container VariableID:147:42 */
+  /* Value: #160d8c  via primitive colour collection.tertiary colour palette.tertiary 30 */
+  --ds-color-on-tertiary-container: var(--ds-color-primitive-tertiary-30);
+
+  /* Channels of --ds-color-on-tertiary-container - for rgb(var(--ds-color-on-tertiary-container-rgb) / 50%) */
+  --ds-color-on-tertiary-container-rgb: 22 13 140;
+
+  /* Role: error role */
+  /* Figma: colour roles.error role VariableID:148:43 */
+  /* Value: #cc0000  via primitive colour collection.error colour palette.error 40 */
+  --ds-color-error: var(--ds-color-primitive-error-40);
+
+  /* Channels of --ds-color-error - for rgb(var(--ds-color-error-rgb) / 50%) */
+  --ds-color-error-rgb: 204 0 0;
+
+  /* Role: on error role */
+  /* Figma: colour roles.on error role VariableID:148:44 */
+  /* Value: #ffffff  via primitive colour collection.error colour palette.error 100 */
+  --ds-color-on-error: var(--ds-color-primitive-error-100);
+
+  /* Channels of --ds-color-on-error - for rgb(var(--ds-color-on-error-rgb) / 50%) */
+  --ds-color-on-error-rgb: 255 255 255;
+
+  /* Role: error container */
+  /* Figma: colour roles.error container VariableID:148:45 */
+  /* Value: #ffcccc  via primitive colour collection.error colour palette.error 90 */
+  --ds-color-error-container: var(--ds-color-primitive-error-90);
+
+  /* Channels of --ds-color-error-container - for rgb(var(--ds-color-error-container-rgb) / 50%) */
+  --ds-color-error-container-rgb: 255 204 204;
+
+  /* Role: on error container */
+  /* Figma: colour roles.on error container VariableID:148:46 */
+  /* Value: #990000  via primitive colour collection.error colour palette.error 30 */
+  --ds-color-on-error-container: var(--ds-color-primitive-error-30);
+
+  /* Channels of --ds-color-on-error-container - for rgb(var(--ds-color-on-error-container-rgb) / 50%) */
+  --ds-color-on-error-container-rgb: 153 0 0;
+}
+
+/* ==============================================================================
+ * PRIMITIVE COLOUR FOUNDATIONS
+ * ------------------------------------------------------------------------------
+ * Raw palette values. They exist so the roles above have a single source of
+ * truth and can be re-pointed without hunting through code. Referencing one
+ * of these from a component hard-codes a colour into the UI and breaks the
+ * theming contract - always use a role instead.
+ *
+ * >> FOUNDATIONS ONLY - DO NOT APPLY DIRECTLY IN THE UI
+ * ==============================================================================
+ */
+:root {
+  /* Figma: primitive colour collection.key colour group.primary key colour VariableID:132:5 */
+  --ds-color-primitive-key-primary: rgb(34 21 214);
+
+  /* Channels of --ds-color-primitive-key-primary - for rgb(var(--ds-color-primitive-key-primary-rgb) / 50%) */
+  --ds-color-primitive-key-primary-rgb: 34 21 214;
+
+  /* Figma: primitive colour collection.key colour group.secondary key colour VariableID:132:6 */
+  --ds-color-primitive-key-secondary: rgb(27 17 171);
+
+  /* Channels of --ds-color-primitive-key-secondary - for rgb(var(--ds-color-primitive-key-secondary-rgb) / 50%) */
+  --ds-color-primitive-key-secondary-rgb: 27 17 171;
+
+  /* Figma: primitive colour collection.key colour group.tertiary key colour VariableID:132:7 */
+  --ds-color-primitive-key-tertiary: rgb(60 47 235);
+
+  /* Channels of --ds-color-primitive-key-tertiary - for rgb(var(--ds-color-primitive-key-tertiary-rgb) / 50%) */
+  --ds-color-primitive-key-tertiary-rgb: 60 47 235;
+
+  /* Figma: primitive colour collection.key colour group.neutral key colour VariableID:132:8 */
+  --ds-color-primitive-key-neutral: rgb(27 22 22);
+
+  /* Channels of --ds-color-primitive-key-neutral - for rgb(var(--ds-color-primitive-key-neutral-rgb) / 50%) */
+  --ds-color-primitive-key-neutral-rgb: 27 22 22;
+
+  /* Figma: primitive colour collection.key colour group.neutral variant key colour VariableID:132:9 */
+  --ds-color-primitive-key-neutral-variant: rgb(66 54 54);
+
+  /* Channels of --ds-color-primitive-key-neutral-variant - for rgb(var(--ds-color-primitive-key-neutral-variant-rgb) / 50%) */
+  --ds-color-primitive-key-neutral-variant-rgb: 66 54 54;
+
+  /* Figma: primitive colour collection.key colour group.error key colour VariableID:132:10 */
+  --ds-color-primitive-key-error: rgb(255 0 0);
+
+  /* Channels of --ds-color-primitive-key-error - for rgb(var(--ds-color-primitive-key-error-rgb) / 50%) */
+  --ds-color-primitive-key-error-rgb: 255 0 0;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 0 VariableID:134:2 */
+  --ds-color-primitive-primary-0: rgb(0 0 0);
+
+  /* Channels of --ds-color-primitive-primary-0 - for rgb(var(--ds-color-primitive-primary-0-rgb) / 50%) */
+  --ds-color-primitive-primary-0-rgb: 0 0 0;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 10 VariableID:134:3 */
+  --ds-color-primitive-primary-10: rgb(7 5 46);
+
+  /* Channels of --ds-color-primitive-primary-10 - for rgb(var(--ds-color-primitive-primary-10-rgb) / 50%) */
+  --ds-color-primitive-primary-10-rgb: 7 5 46;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 20 VariableID:134:4 */
+  --ds-color-primitive-primary-20: rgb(15 9 93);
+
+  /* Channels of --ds-color-primitive-primary-20 - for rgb(var(--ds-color-primitive-primary-20-rgb) / 50%) */
+  --ds-color-primitive-primary-20-rgb: 15 9 93;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 30 VariableID:134:5 */
+  --ds-color-primitive-primary-30: rgb(22 14 139);
+
+  /* Channels of --ds-color-primitive-primary-30 - for rgb(var(--ds-color-primitive-primary-30-rgb) / 50%) */
+  --ds-color-primitive-primary-30-rgb: 22 14 139;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 40 VariableID:134:6 */
+  --ds-color-primitive-primary-40: rgb(29 18 186);
+
+  /* Channels of --ds-color-primitive-primary-40 - for rgb(var(--ds-color-primitive-primary-40-rgb) / 50%) */
+  --ds-color-primitive-primary-40-rgb: 29 18 186;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 50 VariableID:134:7 */
+  --ds-color-primitive-primary-50: rgb(37 23 232);
+
+  /* Channels of --ds-color-primitive-primary-50 - for rgb(var(--ds-color-primitive-primary-50-rgb) / 50%) */
+  --ds-color-primitive-primary-50-rgb: 37 23 232;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 60 VariableID:134:8 */
+  --ds-color-primitive-primary-60: rgb(80 69 237);
+
+  /* Channels of --ds-color-primitive-primary-60 - for rgb(var(--ds-color-primitive-primary-60-rgb) / 50%) */
+  --ds-color-primitive-primary-60-rgb: 80 69 237;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 70 VariableID:134:9 */
+  --ds-color-primitive-primary-70: rgb(124 116 241);
+
+  /* Channels of --ds-color-primitive-primary-70 - for rgb(var(--ds-color-primitive-primary-70-rgb) / 50%) */
+  --ds-color-primitive-primary-70-rgb: 124 116 241;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 80 VariableID:134:10 */
+  --ds-color-primitive-primary-80: rgb(168 162 246);
+
+  /* Channels of --ds-color-primitive-primary-80 - for rgb(var(--ds-color-primitive-primary-80-rgb) / 50%) */
+  --ds-color-primitive-primary-80-rgb: 168 162 246;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 90 VariableID:134:11 */
+  --ds-color-primitive-primary-90: rgb(211 209 250);
+
+  /* Channels of --ds-color-primitive-primary-90 - for rgb(var(--ds-color-primitive-primary-90-rgb) / 50%) */
+  --ds-color-primitive-primary-90-rgb: 211 209 250;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 95 VariableID:134:12 */
+  --ds-color-primitive-primary-95: rgb(233 232 253);
+
+  /* Channels of --ds-color-primitive-primary-95 - for rgb(var(--ds-color-primitive-primary-95-rgb) / 50%) */
+  --ds-color-primitive-primary-95-rgb: 233 232 253;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 98 VariableID:134:13 */
+  --ds-color-primitive-primary-98: rgb(246 246 254);
+
+  /* Channels of --ds-color-primitive-primary-98 - for rgb(var(--ds-color-primitive-primary-98-rgb) / 50%) */
+  --ds-color-primitive-primary-98-rgb: 246 246 254;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 99 VariableID:134:14 */
+  --ds-color-primitive-primary-99: rgb(251 250 255);
+
+  /* Channels of --ds-color-primitive-primary-99 - for rgb(var(--ds-color-primitive-primary-99-rgb) / 50%) */
+  --ds-color-primitive-primary-99-rgb: 251 250 255;
+
+  /* Figma: primitive colour collection.primary colour palette.primary 100 VariableID:134:15 */
+  --ds-color-primitive-primary-100: rgb(255 255 255);
+
+  /* Channels of --ds-color-primitive-primary-100 - for rgb(var(--ds-color-primitive-primary-100-rgb) / 50%) */
+  --ds-color-primitive-primary-100-rgb: 255 255 255;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary0 VariableID:138:2 */
+  --ds-color-primitive-secondary-0: rgb(0 0 0);
+
+  /* Channels of --ds-color-primitive-secondary-0 - for rgb(var(--ds-color-primitive-secondary-0-rgb) / 50%) */
+  --ds-color-primitive-secondary-0-rgb: 0 0 0;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary10 VariableID:141:15 */
+  --ds-color-primitive-secondary-10: rgb(7 5 46);
+
+  /* Channels of --ds-color-primitive-secondary-10 - for rgb(var(--ds-color-primitive-secondary-10-rgb) / 50%) */
+  --ds-color-primitive-secondary-10-rgb: 7 5 46;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary20 VariableID:141:16 */
+  --ds-color-primitive-secondary-20: rgb(15 9 93);
+
+  /* Channels of --ds-color-primitive-secondary-20 - for rgb(var(--ds-color-primitive-secondary-20-rgb) / 50%) */
+  --ds-color-primitive-secondary-20-rgb: 15 9 93;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary30 VariableID:141:17 */
+  --ds-color-primitive-secondary-30: rgb(22 14 139);
+
+  /* Channels of --ds-color-primitive-secondary-30 - for rgb(var(--ds-color-primitive-secondary-30-rgb) / 50%) */
+  --ds-color-primitive-secondary-30-rgb: 22 14 139;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary40 VariableID:141:18 */
+  --ds-color-primitive-secondary-40: rgb(29 18 186);
+
+  /* Channels of --ds-color-primitive-secondary-40 - for rgb(var(--ds-color-primitive-secondary-40-rgb) / 50%) */
+  --ds-color-primitive-secondary-40-rgb: 29 18 186;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary50 VariableID:142:5 */
+  --ds-color-primitive-secondary-50: rgb(37 23 232);
+
+  /* Channels of --ds-color-primitive-secondary-50 - for rgb(var(--ds-color-primitive-secondary-50-rgb) / 50%) */
+  --ds-color-primitive-secondary-50-rgb: 37 23 232;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary60 VariableID:142:6 */
+  --ds-color-primitive-secondary-60: rgb(80 69 237);
+
+  /* Channels of --ds-color-primitive-secondary-60 - for rgb(var(--ds-color-primitive-secondary-60-rgb) / 50%) */
+  --ds-color-primitive-secondary-60-rgb: 80 69 237;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary70 VariableID:142:7 */
+  --ds-color-primitive-secondary-70: rgb(124 116 241);
+
+  /* Channels of --ds-color-primitive-secondary-70 - for rgb(var(--ds-color-primitive-secondary-70-rgb) / 50%) */
+  --ds-color-primitive-secondary-70-rgb: 124 116 241;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary80 VariableID:142:8 */
+  --ds-color-primitive-secondary-80: rgb(168 162 246);
+
+  /* Channels of --ds-color-primitive-secondary-80 - for rgb(var(--ds-color-primitive-secondary-80-rgb) / 50%) */
+  --ds-color-primitive-secondary-80-rgb: 168 162 246;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary90 VariableID:142:9 */
+  --ds-color-primitive-secondary-90: rgb(211 209 250);
+
+  /* Channels of --ds-color-primitive-secondary-90 - for rgb(var(--ds-color-primitive-secondary-90-rgb) / 50%) */
+  --ds-color-primitive-secondary-90-rgb: 211 209 250;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary95 VariableID:142:10 */
+  --ds-color-primitive-secondary-95: rgb(233 232 253);
+
+  /* Channels of --ds-color-primitive-secondary-95 - for rgb(var(--ds-color-primitive-secondary-95-rgb) / 50%) */
+  --ds-color-primitive-secondary-95-rgb: 233 232 253;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary98 VariableID:142:11 */
+  --ds-color-primitive-secondary-98: rgb(246 246 254);
+
+  /* Channels of --ds-color-primitive-secondary-98 - for rgb(var(--ds-color-primitive-secondary-98-rgb) / 50%) */
+  --ds-color-primitive-secondary-98-rgb: 246 246 254;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary99 VariableID:142:12 */
+  --ds-color-primitive-secondary-99: rgb(252 252 252);
+
+  /* Channels of --ds-color-primitive-secondary-99 - for rgb(var(--ds-color-primitive-secondary-99-rgb) / 50%) */
+  --ds-color-primitive-secondary-99-rgb: 252 252 252;
+
+  /* Figma: primitive colour collection.secondary colour palette.secondary100 VariableID:142:13 */
+  --ds-color-primitive-secondary-100: rgb(255 255 255);
+
+  /* Channels of --ds-color-primitive-secondary-100 - for rgb(var(--ds-color-primitive-secondary-100-rgb) / 50%) */
+  --ds-color-primitive-secondary-100-rgb: 255 255 255;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 0 VariableID:143:14 */
+  --ds-color-primitive-tertiary-0: rgb(0 0 0);
+
+  /* Channels of --ds-color-primitive-tertiary-0 - for rgb(var(--ds-color-primitive-tertiary-0-rgb) / 50%) */
+  --ds-color-primitive-tertiary-0-rgb: 0 0 0;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 10 VariableID:143:15 */
+  --ds-color-primitive-tertiary-10: rgb(33 25 78);
+
+  /* Channels of --ds-color-primitive-tertiary-10 - for rgb(var(--ds-color-primitive-tertiary-10-rgb) / 50%) */
+  --ds-color-primitive-tertiary-10-rgb: 33 25 78;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 20 VariableID:143:16 */
+  --ds-color-primitive-tertiary-20: rgb(15 9 93);
+
+  /* Channels of --ds-color-primitive-tertiary-20 - for rgb(var(--ds-color-primitive-tertiary-20-rgb) / 50%) */
+  --ds-color-primitive-tertiary-20-rgb: 15 9 93;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 30 VariableID:143:17 */
+  --ds-color-primitive-tertiary-30: rgb(22 13 140);
+
+  /* Channels of --ds-color-primitive-tertiary-30 - for rgb(var(--ds-color-primitive-tertiary-30-rgb) / 50%) */
+  --ds-color-primitive-tertiary-30-rgb: 22 13 140;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 40 VariableID:143:18 */
+  --ds-color-primitive-tertiary-40: rgb(30 18 186);
+
+  /* Channels of --ds-color-primitive-tertiary-40 - for rgb(var(--ds-color-primitive-tertiary-40-rgb) / 50%) */
+  --ds-color-primitive-tertiary-40-rgb: 30 18 186;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 50 VariableID:143:19 */
+  --ds-color-primitive-tertiary-50: rgb(37 22 233);
+
+  /* Channels of --ds-color-primitive-tertiary-50 - for rgb(var(--ds-color-primitive-tertiary-50-rgb) / 50%) */
+  --ds-color-primitive-tertiary-50-rgb: 37 22 233;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 60 VariableID:143:21 */
+  --ds-color-primitive-tertiary-60: rgb(81 69 237);
+
+  /* Channels of --ds-color-primitive-tertiary-60 - for rgb(var(--ds-color-primitive-tertiary-60-rgb) / 50%) */
+  --ds-color-primitive-tertiary-60-rgb: 81 69 237;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 70 VariableID:143:22 */
+  --ds-color-primitive-tertiary-70: rgb(130 117 240);
+
+  /* Channels of --ds-color-primitive-tertiary-70 - for rgb(var(--ds-color-primitive-tertiary-70-rgb) / 50%) */
+  --ds-color-primitive-tertiary-70-rgb: 130 117 240;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 80 VariableID:143:23 */
+  --ds-color-primitive-tertiary-80: rgb(168 162 246);
+
+  /* Channels of --ds-color-primitive-tertiary-80 - for rgb(var(--ds-color-primitive-tertiary-80-rgb) / 50%) */
+  --ds-color-primitive-tertiary-80-rgb: 168 162 246;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 90 VariableID:143:24 */
+  --ds-color-primitive-tertiary-90: rgb(211 208 251);
+
+  /* Channels of --ds-color-primitive-tertiary-90 - for rgb(var(--ds-color-primitive-tertiary-90-rgb) / 50%) */
+  --ds-color-primitive-tertiary-90-rgb: 211 208 251;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 95 VariableID:143:25 */
+  --ds-color-primitive-tertiary-95: rgb(233 232 253);
+
+  /* Channels of --ds-color-primitive-tertiary-95 - for rgb(var(--ds-color-primitive-tertiary-95-rgb) / 50%) */
+  --ds-color-primitive-tertiary-95-rgb: 233 232 253;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 98 VariableID:143:26 */
+  --ds-color-primitive-tertiary-98: rgb(246 246 254);
+
+  /* Channels of --ds-color-primitive-tertiary-98 - for rgb(var(--ds-color-primitive-tertiary-98-rgb) / 50%) */
+  --ds-color-primitive-tertiary-98-rgb: 246 246 254;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 99 VariableID:143:27 */
+  --ds-color-primitive-tertiary-99: rgb(251 250 255);
+
+  /* Channels of --ds-color-primitive-tertiary-99 - for rgb(var(--ds-color-primitive-tertiary-99-rgb) / 50%) */
+  --ds-color-primitive-tertiary-99-rgb: 251 250 255;
+
+  /* Figma: primitive colour collection.tertiary colour palette.tertiary 100 VariableID:143:28 */
+  --ds-color-primitive-tertiary-100: rgb(255 255 255);
+
+  /* Channels of --ds-color-primitive-tertiary-100 - for rgb(var(--ds-color-primitive-tertiary-100-rgb) / 50%) */
+  --ds-color-primitive-tertiary-100-rgb: 255 255 255;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 0 VariableID:143:29 */
+  --ds-color-primitive-neutral-0: rgb(0 0 0);
+
+  /* Channels of --ds-color-primitive-neutral-0 - for rgb(var(--ds-color-primitive-neutral-0-rgb) / 50%) */
+  --ds-color-primitive-neutral-0-rgb: 0 0 0;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 10 VariableID:143:30 */
+  --ds-color-primitive-neutral-10: rgb(27 22 22);
+
+  /* Channels of --ds-color-primitive-neutral-10 - for rgb(var(--ds-color-primitive-neutral-10-rgb) / 50%) */
+  --ds-color-primitive-neutral-10-rgb: 27 22 22;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 20 VariableID:143:31 */
+  --ds-color-primitive-neutral-20: rgb(56 46 46);
+
+  /* Channels of --ds-color-primitive-neutral-20 - for rgb(var(--ds-color-primitive-neutral-20-rgb) / 50%) */
+  --ds-color-primitive-neutral-20-rgb: 56 46 46;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 30 VariableID:143:32 */
+  --ds-color-primitive-neutral-30: rgb(83 70 70);
+
+  /* Channels of --ds-color-primitive-neutral-30 - for rgb(var(--ds-color-primitive-neutral-30-rgb) / 50%) */
+  --ds-color-primitive-neutral-30-rgb: 83 70 70;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 40 VariableID:143:33 */
+  --ds-color-primitive-neutral-40: rgb(111 93 93);
+
+  /* Channels of --ds-color-primitive-neutral-40 - for rgb(var(--ds-color-primitive-neutral-40-rgb) / 50%) */
+  --ds-color-primitive-neutral-40-rgb: 111 93 93;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 50 VariableID:143:34 */
+  --ds-color-primitive-neutral-50: rgb(139 116 116);
+
+  /* Channels of --ds-color-primitive-neutral-50 - for rgb(var(--ds-color-primitive-neutral-50-rgb) / 50%) */
+  --ds-color-primitive-neutral-50-rgb: 139 116 116;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 60 VariableID:143:35 */
+  --ds-color-primitive-neutral-60: rgb(162 144 144);
+
+  /* Channels of --ds-color-primitive-neutral-60 - for rgb(var(--ds-color-primitive-neutral-60-rgb) / 50%) */
+  --ds-color-primitive-neutral-60-rgb: 162 144 144;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 70 VariableID:143:36 */
+  --ds-color-primitive-neutral-70: rgb(185 172 172);
+
+  /* Channels of --ds-color-primitive-neutral-70 - for rgb(var(--ds-color-primitive-neutral-70-rgb) / 50%) */
+  --ds-color-primitive-neutral-70-rgb: 185 172 172;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 80 VariableID:143:37 */
+  --ds-color-primitive-neutral-80: rgb(204 204 204);
+
+  /* Channels of --ds-color-primitive-neutral-80 - for rgb(var(--ds-color-primitive-neutral-80-rgb) / 50%) */
+  --ds-color-primitive-neutral-80-rgb: 204 204 204;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 90 VariableID:143:38 */
+  --ds-color-primitive-neutral-90: rgb(232 227 227);
+
+  /* Channels of --ds-color-primitive-neutral-90 - for rgb(var(--ds-color-primitive-neutral-90-rgb) / 50%) */
+  --ds-color-primitive-neutral-90-rgb: 232 227 227;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 95 VariableID:143:39 */
+  --ds-color-primitive-neutral-95: rgb(243 241 241);
+
+  /* Channels of --ds-color-primitive-neutral-95 - for rgb(var(--ds-color-primitive-neutral-95-rgb) / 50%) */
+  --ds-color-primitive-neutral-95-rgb: 243 241 241;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 98 VariableID:143:40 */
+  --ds-color-primitive-neutral-98: rgb(250 249 249);
+
+  /* Channels of --ds-color-primitive-neutral-98 - for rgb(var(--ds-color-primitive-neutral-98-rgb) / 50%) */
+  --ds-color-primitive-neutral-98-rgb: 250 249 249;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 99 VariableID:143:41 */
+  --ds-color-primitive-neutral-99: rgb(253 252 252);
+
+  /* Channels of --ds-color-primitive-neutral-99 - for rgb(var(--ds-color-primitive-neutral-99-rgb) / 50%) */
+  --ds-color-primitive-neutral-99-rgb: 253 252 252;
+
+  /* Figma: primitive colour collection.neutral colour palette.neutral 100 VariableID:143:42 */
+  --ds-color-primitive-neutral-100: rgb(255 255 255);
+
+  /* Channels of --ds-color-primitive-neutral-100 - for rgb(var(--ds-color-primitive-neutral-100-rgb) / 50%) */
+  --ds-color-primitive-neutral-100-rgb: 255 255 255;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 0 VariableID:145:2 */
+  --ds-color-primitive-neutral-variant-0: rgb(0 0 0);
+
+  /* Channels of --ds-color-primitive-neutral-variant-0 - for rgb(var(--ds-color-primitive-neutral-variant-0-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-0-rgb: 0 0 0;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 80 VariableID:145:3 */
+  --ds-color-primitive-neutral-variant-80: rgb(209 199 199);
+
+  /* Channels of --ds-color-primitive-neutral-variant-80 - for rgb(var(--ds-color-primitive-neutral-variant-80-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-80-rgb: 209 199 199;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 90 VariableID:145:4 */
+  --ds-color-primitive-neutral-variant-90: rgb(232 227 227);
+
+  /* Channels of --ds-color-primitive-neutral-variant-90 - for rgb(var(--ds-color-primitive-neutral-variant-90-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-90-rgb: 232 227 227;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 95 VariableID:145:5 */
+  --ds-color-primitive-neutral-variant-95: rgb(243 241 241);
+
+  /* Channels of --ds-color-primitive-neutral-variant-95 - for rgb(var(--ds-color-primitive-neutral-variant-95-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-95-rgb: 243 241 241;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 98 VariableID:145:6 */
+  --ds-color-primitive-neutral-variant-98: rgb(251 251 251);
+
+  /* Channels of --ds-color-primitive-neutral-variant-98 - for rgb(var(--ds-color-primitive-neutral-variant-98-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-98-rgb: 251 251 251;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 99 VariableID:145:7 */
+  --ds-color-primitive-neutral-variant-99: rgb(253 252 252);
+
+  /* Channels of --ds-color-primitive-neutral-variant-99 - for rgb(var(--ds-color-primitive-neutral-variant-99-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-99-rgb: 253 252 252;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 100 VariableID:145:8 */
+  --ds-color-primitive-neutral-variant-100: rgb(255 255 255);
+
+  /* Channels of --ds-color-primitive-neutral-variant-100 - for rgb(var(--ds-color-primitive-neutral-variant-100-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-100-rgb: 255 255 255;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 10 VariableID:145:9 */
+  --ds-color-primitive-neutral-variant-10: rgb(28 23 23);
+
+  /* Channels of --ds-color-primitive-neutral-variant-10 - for rgb(var(--ds-color-primitive-neutral-variant-10-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-10-rgb: 28 23 23;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 20 VariableID:145:10 */
+  --ds-color-primitive-neutral-variant-20: rgb(61 41 41);
+
+  /* Channels of --ds-color-primitive-neutral-variant-20 - for rgb(var(--ds-color-primitive-neutral-variant-20-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-20-rgb: 61 41 41;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 30 VariableID:145:11 */
+  --ds-color-primitive-neutral-variant-30: rgb(84 69 69);
+
+  /* Channels of --ds-color-primitive-neutral-variant-30 - for rgb(var(--ds-color-primitive-neutral-variant-30-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-30-rgb: 84 69 69;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 40 VariableID:145:12 */
+  --ds-color-primitive-neutral-variant-40: rgb(112 92 92);
+
+  /* Channels of --ds-color-primitive-neutral-variant-40 - for rgb(var(--ds-color-primitive-neutral-variant-40-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-40-rgb: 112 92 92;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 50 VariableID:145:13 */
+  --ds-color-primitive-neutral-variant-50: rgb(140 115 115);
+
+  /* Channels of --ds-color-primitive-neutral-variant-50 - for rgb(var(--ds-color-primitive-neutral-variant-50-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-50-rgb: 140 115 115;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 60 VariableID:145:14 */
+  --ds-color-primitive-neutral-variant-60: rgb(163 143 143);
+
+  /* Channels of --ds-color-primitive-neutral-variant-60 - for rgb(var(--ds-color-primitive-neutral-variant-60-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-60-rgb: 163 143 143;
+
+  /* Figma: primitive colour collection.neutral variant colour palette.neutral variant 70 VariableID:145:15 */
+  --ds-color-primitive-neutral-variant-70: rgb(186 171 171);
+
+  /* Channels of --ds-color-primitive-neutral-variant-70 - for rgb(var(--ds-color-primitive-neutral-variant-70-rgb) / 50%) */
+  --ds-color-primitive-neutral-variant-70-rgb: 186 171 171;
+
+  /* Figma: primitive colour collection.error colour palette.error 0 VariableID:145:16 */
+  --ds-color-primitive-error-0: rgb(0 0 0);
+
+  /* Channels of --ds-color-primitive-error-0 - for rgb(var(--ds-color-primitive-error-0-rgb) / 50%) */
+  --ds-color-primitive-error-0-rgb: 0 0 0;
+
+  /* Figma: primitive colour collection.error colour palette.error 10 VariableID:145:17 */
+  --ds-color-primitive-error-10: rgb(51 0 0);
+
+  /* Channels of --ds-color-primitive-error-10 - for rgb(var(--ds-color-primitive-error-10-rgb) / 50%) */
+  --ds-color-primitive-error-10-rgb: 51 0 0;
+
+  /* Figma: primitive colour collection.error colour palette.error 20 VariableID:145:18 */
+  --ds-color-primitive-error-20: rgb(102 0 0);
+
+  /* Channels of --ds-color-primitive-error-20 - for rgb(var(--ds-color-primitive-error-20-rgb) / 50%) */
+  --ds-color-primitive-error-20-rgb: 102 0 0;
+
+  /* Figma: primitive colour collection.error colour palette.error 30 VariableID:145:19 */
+  --ds-color-primitive-error-30: rgb(153 0 0);
+
+  /* Channels of --ds-color-primitive-error-30 - for rgb(var(--ds-color-primitive-error-30-rgb) / 50%) */
+  --ds-color-primitive-error-30-rgb: 153 0 0;
+
+  /* Figma: primitive colour collection.error colour palette.error 40 VariableID:145:20 */
+  --ds-color-primitive-error-40: rgb(204 0 0);
+
+  /* Channels of --ds-color-primitive-error-40 - for rgb(var(--ds-color-primitive-error-40-rgb) / 50%) */
+  --ds-color-primitive-error-40-rgb: 204 0 0;
+
+  /* Figma: primitive colour collection.error colour palette.error 50 VariableID:145:21 */
+  --ds-color-primitive-error-50: rgb(255 0 0);
+
+  /* Channels of --ds-color-primitive-error-50 - for rgb(var(--ds-color-primitive-error-50-rgb) / 50%) */
+  --ds-color-primitive-error-50-rgb: 255 0 0;
+
+  /* Figma: primitive colour collection.error colour palette.error 60 VariableID:145:22 */
+  --ds-color-primitive-error-60: rgb(255 51 51);
+
+  /* Channels of --ds-color-primitive-error-60 - for rgb(var(--ds-color-primitive-error-60-rgb) / 50%) */
+  --ds-color-primitive-error-60-rgb: 255 51 51;
+
+  /* Figma: primitive colour collection.error colour palette.error 70 VariableID:145:23 */
+  --ds-color-primitive-error-70: rgb(255 102 102);
+
+  /* Channels of --ds-color-primitive-error-70 - for rgb(var(--ds-color-primitive-error-70-rgb) / 50%) */
+  --ds-color-primitive-error-70-rgb: 255 102 102;
+
+  /* Figma: primitive colour collection.error colour palette.error 80 VariableID:145:24 */
+  --ds-color-primitive-error-80: rgb(255 153 153);
+
+  /* Channels of --ds-color-primitive-error-80 - for rgb(var(--ds-color-primitive-error-80-rgb) / 50%) */
+  --ds-color-primitive-error-80-rgb: 255 153 153;
+
+  /* Figma: primitive colour collection.error colour palette.error 90 VariableID:145:25 */
+  --ds-color-primitive-error-90: rgb(255 204 204);
+
+  /* Channels of --ds-color-primitive-error-90 - for rgb(var(--ds-color-primitive-error-90-rgb) / 50%) */
+  --ds-color-primitive-error-90-rgb: 255 204 204;
+
+  /* Figma: primitive colour collection.error colour palette.error 95 VariableID:145:26 */
+  --ds-color-primitive-error-95: rgb(255 229 229);
+
+  /* Channels of --ds-color-primitive-error-95 - for rgb(var(--ds-color-primitive-error-95-rgb) / 50%) */
+  --ds-color-primitive-error-95-rgb: 255 229 229;
+
+  /* Figma: primitive colour collection.error colour palette.error 98 VariableID:145:27 */
+  --ds-color-primitive-error-98: rgb(255 245 245);
+
+  /* Channels of --ds-color-primitive-error-98 - for rgb(var(--ds-color-primitive-error-98-rgb) / 50%) */
+  --ds-color-primitive-error-98-rgb: 255 245 245;
+
+  /* Figma: primitive colour collection.error colour palette.error 99 VariableID:145:28 */
+  --ds-color-primitive-error-99: rgb(255 250 250);
+
+  /* Channels of --ds-color-primitive-error-99 - for rgb(var(--ds-color-primitive-error-99-rgb) / 50%) */
+  --ds-color-primitive-error-99-rgb: 255 250 250;
+
+  /* Figma: primitive colour collection.error colour palette.error 100 VariableID:145:29 */
+  --ds-color-primitive-error-100: rgb(255 255 255);
+
+  /* Channels of --ds-color-primitive-error-100 - for rgb(var(--ds-color-primitive-error-100-rgb) / 50%) */
+  --ds-color-primitive-error-100-rgb: 255 255 255;
+}
+
+/* ==============================================================================
+ * SPACING SCALE
+ * ------------------------------------------------------------------------------
+ * A deliberately short scale. Two steps per jump keeps rhythm consistent.
+ *
+ * >> LAYOUT - GAP, PADDING, MARGIN
+ * ==============================================================================
+ */
+:root {
+  /* Figma: spacing collection.no spacing VariableID:180:3 */
+  --ds-spacing-no: 0px;
+
+  /* Figma: spacing collection.extra small spacing VariableID:180:4 */
+  --ds-spacing-extra-small: 4px;
+
+  /* Figma: spacing collection.small spacing VariableID:180:5 */
+  --ds-spacing-small: 8px;
+
+  /* Figma: spacing collection.medium spacing VariableID:180:6 */
+  --ds-spacing-medium: 12px;
+
+  /* Figma: spacing collection.base spacing VariableID:180:7 */
+  --ds-spacing-base: 16px;
+
+  /* Figma: spacing collection.extra large spacing VariableID:180:8 */
+  --ds-spacing-extra-large: 24px;
+
+  /* Figma: spacing collection.large spacing VariableID:180:9 */
+  --ds-spacing-large: 18px;
+
+  /* Figma: spacing collection.very large spacing VariableID:180:10 */
+  --ds-spacing-very-large: 32px;
+}
+
+/* ==============================================================================
+ * TYPOGRAPHY
+ * ------------------------------------------------------------------------------
+ * One variable per CSS property, plus a `font` shorthand for the common case:
+ * `font: var(--ds-typography-body-large-font)`.
+ *
+ * >> TEXT STYLES
+ * ==============================================================================
+ */
+:root {
+  /* Figma: typography.display large.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-display-large-font-family: "DM Sans";
+
+  /* Figma: typography.display large.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-display-large-font-size: 64px;
+
+  /* Figma: typography.display large.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-display-large-font-weight: 500;
+
+  /* Figma: typography.display large.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-display-large-font-style: normal;
+
+  /* Figma: typography.display large.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-display-large-font-stretch: normal;
+
+  /* Figma: typography.display large.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-display-large-letter-spacing: -4px;
+
+  /* Figma: typography.display large.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-display-large-line-height: 96px;
+
+  /* Figma: typography.display large.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-display-large-text-decoration: none;
+
+  /* Figma: typography.display large.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-display-large-text-transform: none;
+
+  /* Figma: typography.display large.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-display-large-text-indent: 0px;
+
+  /* Figma: typography.display large.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-display-large-margin: 0px;
+
+  /* Figma: typography.display large */
+  /* CSS property: font */
+  --ds-typography-display-large-font: 500 64px/96px "DM Sans";
+
+  /* Figma: typography.display medium.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-display-medium-font-family: "DM Sans";
+
+  /* Figma: typography.display medium.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-display-medium-font-size: 50px;
+
+  /* Figma: typography.display medium.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-display-medium-font-weight: 500;
+
+  /* Figma: typography.display medium.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-display-medium-font-style: normal;
+
+  /* Figma: typography.display medium.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-display-medium-font-stretch: normal;
+
+  /* Figma: typography.display medium.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-display-medium-letter-spacing: -3px;
+
+  /* Figma: typography.display medium.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-display-medium-line-height: 75px;
+
+  /* Figma: typography.display medium.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-display-medium-text-decoration: none;
+
+  /* Figma: typography.display medium.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-display-medium-text-transform: none;
+
+  /* Figma: typography.display medium.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-display-medium-text-indent: 0px;
+
+  /* Figma: typography.display medium.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-display-medium-margin: 0px;
+
+  /* Figma: typography.display medium */
+  /* CSS property: font */
+  --ds-typography-display-medium-font: 500 50px/75px "DM Sans";
+
+  /* Figma: typography.display small.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-display-small-font-family: "DM Sans";
+
+  /* Figma: typography.display small.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-display-small-font-size: 40px;
+
+  /* Figma: typography.display small.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-display-small-font-weight: 500;
+
+  /* Figma: typography.display small.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-display-small-font-style: normal;
+
+  /* Figma: typography.display small.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-display-small-font-stretch: normal;
+
+  /* Figma: typography.display small.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-display-small-letter-spacing: 0px;
+
+  /* Figma: typography.display small.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-display-small-line-height: 60px;
+
+  /* Figma: typography.display small.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-display-small-text-decoration: none;
+
+  /* Figma: typography.display small.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-display-small-text-transform: none;
+
+  /* Figma: typography.display small.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-display-small-text-indent: 0px;
+
+  /* Figma: typography.display small.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-display-small-margin: 0px;
+
+  /* Figma: typography.display small */
+  /* CSS property: font */
+  --ds-typography-display-small-font: 500 40px/60px "DM Sans";
+
+  /* Figma: typography.headline large.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-headline-large-font-family: "DM Sans";
+
+  /* Figma: typography.headline large.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-headline-large-font-size: 32px;
+
+  /* Figma: typography.headline large.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-headline-large-font-weight: 500;
+
+  /* Figma: typography.headline large.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-headline-large-font-style: normal;
+
+  /* Figma: typography.headline large.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-headline-large-font-stretch: normal;
+
+  /* Figma: typography.headline large.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-headline-large-letter-spacing: -1px;
+
+  /* Figma: typography.headline large.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-headline-large-line-height: 48px;
+
+  /* Figma: typography.headline large.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-headline-large-text-decoration: none;
+
+  /* Figma: typography.headline large.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-headline-large-text-transform: none;
+
+  /* Figma: typography.headline large.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-headline-large-text-indent: 0px;
+
+  /* Figma: typography.headline large.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-headline-large-margin: 0px;
+
+  /* Figma: typography.headline large */
+  /* CSS property: font */
+  --ds-typography-headline-large-font: 500 32px/48px "DM Sans";
+
+  /* Figma: typography.headline medium.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-headline-medium-font-family: "DM Sans";
+
+  /* Figma: typography.headline medium.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-headline-medium-font-size: 28px;
+
+  /* Figma: typography.headline medium.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-headline-medium-font-weight: 500;
+
+  /* Figma: typography.headline medium.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-headline-medium-font-style: normal;
+
+  /* Figma: typography.headline medium.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-headline-medium-font-stretch: normal;
+
+  /* Figma: typography.headline medium.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-headline-medium-letter-spacing: -1px;
+
+  /* Figma: typography.headline medium.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-headline-medium-line-height: 42px;
+
+  /* Figma: typography.headline medium.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-headline-medium-text-decoration: none;
+
+  /* Figma: typography.headline medium.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-headline-medium-text-transform: none;
+
+  /* Figma: typography.headline medium.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-headline-medium-text-indent: 0px;
+
+  /* Figma: typography.headline medium.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-headline-medium-margin: 0px;
+
+  /* Figma: typography.headline medium */
+  /* CSS property: font */
+  --ds-typography-headline-medium-font: 500 28px/42px "DM Sans";
+
+  /* Figma: typography.headline small.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-headline-small-font-family: "DM Sans";
+
+  /* Figma: typography.headline small.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-headline-small-font-size: 24px;
+
+  /* Figma: typography.headline small.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-headline-small-font-weight: 500;
+
+  /* Figma: typography.headline small.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-headline-small-font-style: normal;
+
+  /* Figma: typography.headline small.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-headline-small-font-stretch: normal;
+
+  /* Figma: typography.headline small.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-headline-small-letter-spacing: -1px;
+
+  /* Figma: typography.headline small.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-headline-small-line-height: 36px;
+
+  /* Figma: typography.headline small.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-headline-small-text-decoration: none;
+
+  /* Figma: typography.headline small.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-headline-small-text-transform: none;
+
+  /* Figma: typography.headline small.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-headline-small-text-indent: 0px;
+
+  /* Figma: typography.headline small.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-headline-small-margin: 0px;
+
+  /* Figma: typography.headline small */
+  /* CSS property: font */
+  --ds-typography-headline-small-font: 500 24px/36px "DM Sans";
+
+  /* Figma: typography.title large.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-title-large-font-family: "DM Sans";
+
+  /* Figma: typography.title large.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-title-large-font-size: 22px;
+
+  /* Figma: typography.title large.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-title-large-font-weight: 500;
+
+  /* Figma: typography.title large.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-title-large-font-style: normal;
+
+  /* Figma: typography.title large.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-title-large-font-stretch: normal;
+
+  /* Figma: typography.title large.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-title-large-letter-spacing: -1px;
+
+  /* Figma: typography.title large.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-title-large-line-height: 33px;
+
+  /* Figma: typography.title large.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-title-large-text-decoration: none;
+
+  /* Figma: typography.title large.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-title-large-text-transform: none;
+
+  /* Figma: typography.title large.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-title-large-text-indent: 0px;
+
+  /* Figma: typography.title large.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-title-large-margin: 0px;
+
+  /* Figma: typography.title large */
+  /* CSS property: font */
+  --ds-typography-title-large-font: 500 22px/33px "DM Sans";
+
+  /* Figma: typography.title medium.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-title-medium-font-family: "DM Sans";
+
+  /* Figma: typography.title medium.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-title-medium-font-size: 16px;
+
+  /* Figma: typography.title medium.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-title-medium-font-weight: 600;
+
+  /* Figma: typography.title medium.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-title-medium-font-style: normal;
+
+  /* Figma: typography.title medium.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-title-medium-font-stretch: normal;
+
+  /* Figma: typography.title medium.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-title-medium-letter-spacing: -0.85px;
+
+  /* Figma: typography.title medium.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-title-medium-line-height: 24px;
+
+  /* Figma: typography.title medium.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-title-medium-text-decoration: none;
+
+  /* Figma: typography.title medium.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-title-medium-text-transform: none;
+
+  /* Figma: typography.title medium.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-title-medium-text-indent: 0px;
+
+  /* Figma: typography.title medium.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-title-medium-margin: 0px;
+
+  /* Figma: typography.title medium */
+  /* CSS property: font */
+  --ds-typography-title-medium-font: 600 16px/24px "DM Sans";
+
+  /* Figma: typography.title small.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-title-small-font-family: "DM Sans";
+
+  /* Figma: typography.title small.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-title-small-font-size: 14px;
+
+  /* Figma: typography.title small.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-title-small-font-weight: 600;
+
+  /* Figma: typography.title small.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-title-small-font-style: normal;
+
+  /* Figma: typography.title small.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-title-small-font-stretch: normal;
+
+  /* Figma: typography.title small.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-title-small-letter-spacing: -0.75px;
+
+  /* Figma: typography.title small.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-title-small-line-height: 21px;
+
+  /* Figma: typography.title small.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-title-small-text-decoration: none;
+
+  /* Figma: typography.title small.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-title-small-text-transform: none;
+
+  /* Figma: typography.title small.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-title-small-text-indent: 0px;
+
+  /* Figma: typography.title small.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-title-small-margin: 0px;
+
+  /* Figma: typography.title small */
+  /* CSS property: font */
+  --ds-typography-title-small-font: 600 14px/21px "DM Sans";
+
+  /* Figma: typography.body large.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-body-large-font-family: "DM Sans";
+
+  /* Figma: typography.body large.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-body-large-font-size: 16px;
+
+  /* Figma: typography.body large.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-body-large-font-weight: 500;
+
+  /* Figma: typography.body large.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-body-large-font-style: normal;
+
+  /* Figma: typography.body large.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-body-large-font-stretch: normal;
+
+  /* Figma: typography.body large.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-body-large-letter-spacing: -0.8px;
+
+  /* Figma: typography.body large.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-body-large-line-height: 24px;
+
+  /* Figma: typography.body large.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-body-large-text-decoration: none;
+
+  /* Figma: typography.body large.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-body-large-text-transform: none;
+
+  /* Figma: typography.body large.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-body-large-text-indent: 0px;
+
+  /* Figma: typography.body large.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-body-large-margin: 0px;
+
+  /* Figma: typography.body large */
+  /* CSS property: font */
+  --ds-typography-body-large-font: 500 16px/24px "DM Sans";
+
+  /* Figma: typography.body medium.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-body-medium-font-family: "DM Sans";
+
+  /* Figma: typography.body medium.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-body-medium-font-size: 14px;
+
+  /* Figma: typography.body medium.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-body-medium-font-weight: 500;
+
+  /* Figma: typography.body medium.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-body-medium-font-style: normal;
+
+  /* Figma: typography.body medium.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-body-medium-font-stretch: normal;
+
+  /* Figma: typography.body medium.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-body-medium-letter-spacing: 0.8px;
+
+  /* Figma: typography.body medium.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-body-medium-line-height: 21px;
+
+  /* Figma: typography.body medium.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-body-medium-text-decoration: none;
+
+  /* Figma: typography.body medium.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-body-medium-text-transform: none;
+
+  /* Figma: typography.body medium.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-body-medium-text-indent: 0px;
+
+  /* Figma: typography.body medium.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-body-medium-margin: 0px;
+
+  /* Figma: typography.body medium */
+  /* CSS property: font */
+  --ds-typography-body-medium-font: 500 14px/21px "DM Sans";
+
+  /* Figma: typography.body small.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-body-small-font-family: "DM Sans";
+
+  /* Figma: typography.body small.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-body-small-font-size: 12px;
+
+  /* Figma: typography.body small.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-body-small-font-weight: 500;
+
+  /* Figma: typography.body small.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-body-small-font-style: normal;
+
+  /* Figma: typography.body small.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-body-small-font-stretch: normal;
+
+  /* Figma: typography.body small.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-body-small-letter-spacing: -0.8px;
+
+  /* Figma: typography.body small.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-body-small-line-height: 18px;
+
+  /* Figma: typography.body small.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-body-small-text-decoration: none;
+
+  /* Figma: typography.body small.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-body-small-text-transform: none;
+
+  /* Figma: typography.body small.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-body-small-text-indent: 0px;
+
+  /* Figma: typography.body small.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-body-small-margin: 0px;
+
+  /* Figma: typography.body small */
+  /* CSS property: font */
+  --ds-typography-body-small-font: 500 12px/18px "DM Sans";
+
+  /* Figma: typography.label large.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-label-large-font-family: "DM Sans";
+
+  /* Figma: typography.label large.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-label-large-font-size: 14px;
+
+  /* Figma: typography.label large.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-label-large-font-weight: 500;
+
+  /* Figma: typography.label large.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-label-large-font-style: normal;
+
+  /* Figma: typography.label large.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-label-large-font-stretch: normal;
+
+  /* Figma: typography.label large.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-label-large-letter-spacing: -0.9px;
+
+  /* Figma: typography.label large.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-label-large-line-height: 21px;
+
+  /* Figma: typography.label large.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-label-large-text-decoration: none;
+
+  /* Figma: typography.label large.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-label-large-text-transform: none;
+
+  /* Figma: typography.label large.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-label-large-text-indent: 0px;
+
+  /* Figma: typography.label large.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-label-large-margin: 0px;
+
+  /* Figma: typography.label large */
+  /* CSS property: font */
+  --ds-typography-label-large-font: 500 14px/21px "DM Sans";
+
+  /* Figma: typography.label small.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-label-small-font-family: "DM Sans";
+
+  /* Figma: typography.label small.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-label-small-font-size: 11px;
+
+  /* Figma: typography.label small.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-label-small-font-weight: 500;
+
+  /* Figma: typography.label small.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-label-small-font-style: normal;
+
+  /* Figma: typography.label small.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-label-small-font-stretch: normal;
+
+  /* Figma: typography.label small.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-label-small-letter-spacing: -0.9px;
+
+  /* Figma: typography.label small.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-label-small-line-height: 16.5px;
+
+  /* Figma: typography.label small.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-label-small-text-decoration: none;
+
+  /* Figma: typography.label small.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-label-small-text-transform: none;
+
+  /* Figma: typography.label small.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-label-small-text-indent: 0px;
+
+  /* Figma: typography.label small.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-label-small-margin: 0px;
+
+  /* Figma: typography.label small */
+  /* CSS property: font */
+  --ds-typography-label-small-font: 500 11px/16.5px "DM Sans";
+
+  /* Figma: typography.label medium.fontFamily */
+  /* CSS property: font-family */
+  --ds-typography-label-medium-font-family: "DM Sans";
+
+  /* Figma: typography.label medium.fontSize */
+  /* CSS property: font-size */
+  --ds-typography-label-medium-font-size: 12px;
+
+  /* Figma: typography.label medium.fontWeight */
+  /* CSS property: font-weight */
+  --ds-typography-label-medium-font-weight: 500;
+
+  /* Figma: typography.label medium.fontStyle */
+  /* CSS property: font-style */
+  --ds-typography-label-medium-font-style: normal;
+
+  /* Figma: typography.label medium.fontStretch */
+  /* CSS property: font-stretch */
+  --ds-typography-label-medium-font-stretch: normal;
+
+  /* Figma: typography.label medium.letterSpacing */
+  /* CSS property: letter-spacing */
+  --ds-typography-label-medium-letter-spacing: -0.9px;
+
+  /* Figma: typography.label medium.lineHeight */
+  /* CSS property: line-height */
+  --ds-typography-label-medium-line-height: 18px;
+
+  /* Figma: typography.label medium.textDecoration */
+  /* CSS property: text-decoration */
+  --ds-typography-label-medium-text-decoration: none;
+
+  /* Figma: typography.label medium.textCase */
+  /* CSS property: text-transform */
+  --ds-typography-label-medium-text-transform: none;
+
+  /* Figma: typography.label medium.paragraphIndent */
+  /* CSS property: text-indent */
+  --ds-typography-label-medium-text-indent: 0px;
+
+  /* Figma: typography.label medium.paragraphSpacing */
+  /* CSS property: margin */
+  --ds-typography-label-medium-margin: 0px;
+
+  /* Figma: typography.label medium */
+  /* CSS property: font */
+  --ds-typography-label-medium-font: 500 12px/18px "DM Sans";
+}
+
+/* ==============================================================================
+ * SHADOWS / EFFECTS
+ * ------------------------------------------------------------------------------
+ * Figma layer effects flattened to `box-shadow`. Figma "radius" maps to CSS blur.
+ *
+ * >> ELEVATION
+ * ==============================================================================
+ */
+:root {
+  /* Figma: effect.hard shadow S:5181295ca4464665625dc2ffa95ca8e1098a3a59, */
+  --ds-shadow-hard-shadow: 4px 6px 8px rgb(0 0 0 / 0.3216);
+
+  /* Figma: effect.medium shadoww S:012dc1ee5b7c92ef44c8aaa4874a070e993f91ab, */
+  --ds-shadow-medium-shadoww: 2px 4px 6px rgb(0 0 0 / 0.2784);
+
+  /* Figma: effect.soft shadow S:06d29df859476e6c3d1c10b53a3b38cd93e4d4d2, */
+  --ds-shadow-soft-shadow: 2px 2px 20px rgb(0 0 0 / 0.1216);
+}
+
+/* ==============================================================================
+ * End of generated tokens.
+ *
+ * Regenerate : npm run build
+ * Verify      : npm run check          (fails if design-tokens.tokens.json has changed)
+ * Preview     : open dist/tokens.preview.html
+ * Reference   : dist/TOKENS.md
+ * ------------------------------------------------------------------------ */

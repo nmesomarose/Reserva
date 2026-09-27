@@ -1,0 +1,8 @@
+node_modules/
+npm-debug.log*
+.DS_Store
+*.tmp
+
+# `dist/` is intentionally NOT ignored: the generated CSS is the published
+# artefact of the design system, so it is meant to be committed and consumed
+# by applications. Run `npm run check` in CI to guarantee it is up to date.

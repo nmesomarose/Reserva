@@ -1,0 +1,72 @@
+{
+  "$comment": [
+    "Optional build configuration for scripts/build-tokens.mjs.",
+    "It is auto-loaded when present; any value can be overridden on the CLI,",
+    "e.g. `node scripts/build-tokens.mjs --color-format hex`.",
+    "Delete this file to fall back to the built-in defaults (they are identical)."
+  ],
+  "prefix": "--ds-",
+  "unit": "px",
+  "rootSize": 16,
+  "colorFormat": "modern",
+  "roleValues": "alias",
+  "fontStack": "",
+  "channels": true,
+  "alphaVars": false,
+  "fontShorthand": true,
+  "sort": "palette",
+  "indent": "  ",
+  "groups": {
+    "effect": { "prefix": "shadow", "title": "Shadows / effects" },
+    "primitive colour collection": {
+      "prefix": "color-primitive",
+      "title": "Primitive colour foundations"
+    },
+    "primitive colour collection.key colour group": {
+      "prefix": "color-primitive-key",
+      "stripPhrases": ["key colour"],
+      "title": "Key colours"
+    },
+    "primitive colour collection.primary colour palette": {
+      "prefix": "color-primitive-primary",
+      "title": "Primary palette"
+    },
+    "primitive colour collection.secondary colour palette": {
+      "prefix": "color-primitive-secondary",
+      "title": "Secondary palette"
+    },
+    "primitive colour collection.tertiary colour palette": {
+      "prefix": "color-primitive-tertiary",
+      "title": "Tertiary palette"
+    },
+    "primitive colour collection.neutral palette": {
+      "prefix": "color-primitive-neutral",
+      "title": "Neutral palette"
+    },
+    "primitive colour collection.neutral colour palette": {
+      "prefix": "color-primitive-neutral",
+      "title": "Neutral palette"
+    },
+    "primitive colour collection.neutral variant colour palette": {
+      "prefix": "color-primitive-neutral-variant",
+      "title": "Neutral variant palette"
+    },
+    "primitive colour collection.error colour palette": {
+      "prefix": "color-primitive-error",
+      "title": "Error palette"
+    },
+    "colour roles": {
+      "prefix": "color",
+      "title": "Semantic colour roles",
+      "section": "roles"
+    },
+    "spacing collection": {
+      "prefix": "spacing",
+      "title": "Spacing scale"
+    },
+    "typography": {
+      "prefix": "typography",
+      "title": "Typography"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "design-tokens-to-css",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Converts the Figma/W3C design token export in design-tokens.tokens.json into CSS custom properties, a JSON token report, a Markdown reference and a self-contained HTML style guide.",
+  "type": "module",
+  "bin": {
+    "build-tokens": "./scripts/build-tokens.mjs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "node scripts/build-tokens.mjs",
+    "check": "node scripts/build-tokens.mjs --check",
+    "stdout": "node scripts/build-tokens.mjs --stdout --quiet",
+    "help": "node scripts/build-tokens.mjs --help",
+    "test": "node --test \"tests/**/*.test.mjs\""
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "css-variables",
+    "figma",
+    "dTCG"
+  ],
+  "license": "UNLICENSED"
+}

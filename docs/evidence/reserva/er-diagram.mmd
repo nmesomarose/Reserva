@@ -1,0 +1,122 @@
+erDiagram
+  Organiser ||--o{ Event : "owns (RESTRICT)"
+  Organiser ||--o{ OrganiserSession : "has (CASCADE)"
+  Organiser ||--o{ EventEditLog : "edits (RESTRICT)"
+  Organiser o|--o{ CheckIn : "performs (nullable actor, RESTRICT)"
+  Event ||--o{ EventEditLog : "logs (RESTRICT)"
+  Event ||--o{ ProgrammeItem : "has (CASCADE)"
+  Event ||--o{ TicketType : "has (CASCADE)"
+  Event ||--o{ Registration : "receives (RESTRICT)"
+  Event ||--o{ StaffToken : "issues (CASCADE)"
+  TicketType ||--o{ Registration : "sells (RESTRICT)"
+  Registration ||--o{ Payment : "has (RESTRICT)"
+  Registration ||--o{ CheckIn : "logs (RESTRICT)"
+  Registration ||--o{ AttendeeRequest : "raises (RESTRICT)"
+  StaffToken o|--o{ CheckIn : "authorises (nullable actor, RESTRICT)"
+
+  Organiser {
+    uuid id PK
+    string email UK
+    string password_hash
+    string auth_provider_id
+    datetime created_at
+  }
+
+  OrganiserSession {
+    uuid id PK
+    uuid organiser_id FK
+    string token_hash UK
+    datetime expires_at
+    datetime created_at
+  }
+
+  Event {
+    uuid id PK
+    uuid organiser_id FK
+    string name
+    string slug UK
+    string description
+    EventStatus status
+    datetime starts_at
+    datetime ends_at
+    datetime deleted_at
+  }
+
+  EventEditLog {
+    uuid id PK
+    uuid event_id FK
+    uuid organiser_id FK
+    json changes
+    datetime changed_at
+  }
+
+  ProgrammeItem {
+    uuid id PK
+    uuid event_id FK
+    int sort_order
+    string title
+    datetime time
+  }
+
+  TicketType {
+    uuid id PK
+    uuid event_id FK
+    string name
+    int price_minor_units
+    string currency
+    int quantity_total
+    int quantity_confirmed
+    int quantity_held
+  }
+
+  Registration {
+    uuid id PK
+    uuid event_id FK
+    uuid ticket_type_id FK
+    string unique_reference UK
+    string attendee_name
+    string attendee_email
+    string attendee_phone
+    RegistrationStatus status
+    string idempotency_key UK
+  }
+
+  Payment {
+    uuid id PK
+    uuid registration_id FK
+    string provider_reference UK
+    int expected_amount_minor_units
+    int verified_amount_minor_units
+    string currency
+    PaymentStatus status
+    datetime verified_at
+    boolean requires_reconciliation
+  }
+
+  CheckIn {
+    uuid id PK
+    uuid registration_id FK
+    uuid organiser_id FK
+    uuid staff_token_id FK
+    datetime checked_in_at
+    boolean is_override
+  }
+
+  AttendeeRequest {
+    uuid id PK
+    uuid registration_id FK
+    string message
+    AttendeeRequestStatus status
+    string resolution_notes
+    string idempotency_key UK
+    datetime resolved_at
+  }
+
+  StaffToken {
+    uuid id PK
+    uuid event_id FK
+    string token_hash UK
+    string label
+    datetime expires_at
+    datetime revoked_at
+  }

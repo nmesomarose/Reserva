@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5F5B66"/></marker></defs>
+<rect width="1600" height="1040" fill="#FFFFFF"/>
+<text x="40" y="32" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#1B1B1F">Reserva — Entity–Relationship diagram (PRD v2 §7.2)</text>
+<line x1="800" y1="133" x2="800" y2="200" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="800" y="142.2" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="800" y="182.8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="675" y1="110.38461538461539" x2="275" y2="239.6153846153846" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="636" y="118.98461538461538" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="314" y="223.01538461538462" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="925" y1="110.38461538461539" x2="1325" y2="239.6153846153846" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="964" y="118.98461538461538" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="1286" y="223.01538461538462" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="930" y1="288" x2="1325" y2="281.9230769230769" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="969" y="283.4" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="1286" y="278.5230769230769" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="670" y1="346" x2="275" y2="516.1538461538462" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="631" y="358.8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="314" y="495.3538461538462" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="689" y1="380" x2="541" y2="500" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="666.8" y="394" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="563.2" y="478" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="809" y1="380" x2="820.1" y2="491" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="810.8" y="394" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="818.3000000000001" y="469" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="930" y1="371.62790697674416" x2="1115.3333333333333" y2="488" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="955.8" y="383.82790697674415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="1089.5333333333333" y="467.8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="560" y1="590" x2="695" y2="590" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="584" y="586" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="671" y="586" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="698" y1="689" x2="550" y2="800" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="674" y="703" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="574" y="778" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="830" y1="689" x2="830" y2="808" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="830" y="702.4" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="830" y="786.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="965" y1="687.875" x2="1118.2758620689656" y2="799" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="989" y="701.275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="1094.2758620689656" y="777.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="802.3333333333334" y1="133" x2="827.3333333333334" y2="808" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="804.1333333333333" y="177.6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="825.5333333333334" y="755.4" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+<line x1="1140" y1="632" x2="920" y2="808" stroke="#5F5B66" stroke-width="1.3" marker-end="url(#arrow)"/>
+<text x="1116" y="647.2" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#2215D6">1</text>
+<text x="944" y="784.8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#5F5B66">N</text>
+
+<rect x="675" y="7" width="250" height="126" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 675 37 L 925 37" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="675" y="7" width="250" height="30" rx="6" fill="#2215D6"/>
+<path d="M 675 37 L 925 37" stroke="#2215D6" stroke-width="1.2"/>
+<text x="800" y="27" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Organiser</text>
+<text x="685" y="54" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="915" y="54" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="685" y="72" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">email</text>
+<text x="915" y="72" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<text x="685" y="90" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">password_hash</text>
+<text x="685" y="108" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">auth_provider_id</text>
+<text x="685" y="126" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">created_at</text>
+<rect x="25" y="217" width="250" height="126" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 25 247 L 275 247" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="25" y="217" width="250" height="30" rx="6" fill="#2215D6"/>
+<path d="M 25 247 L 275 247" stroke="#2215D6" stroke-width="1.2"/>
+<text x="150" y="237" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">OrganiserSession</text>
+<text x="35" y="264" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="265" y="264" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="35" y="282" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">organiser_id</text>
+<text x="265" y="282" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="35" y="300" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">token_hash</text>
+<text x="265" y="300" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<text x="35" y="318" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">expires_at</text>
+<text x="35" y="336" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">created_at</text>
+<rect x="670" y="200" width="260" height="180" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 670 230 L 930 230" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="670" y="200" width="260" height="30" rx="6" fill="#2215D6"/>
+<path d="M 670 230 L 930 230" stroke="#2215D6" stroke-width="1.2"/>
+<text x="800" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Event</text>
+<text x="680" y="247" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="920" y="247" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="680" y="265" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">organiser_id</text>
+<text x="920" y="265" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="680" y="283" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">name</text>
+<text x="680" y="301" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">slug</text>
+<text x="920" y="301" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<text x="680" y="319" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">status</text>
+<text x="680" y="337" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">starts_at</text>
+<text x="680" y="355" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">ends_at</text>
+<text x="680" y="373" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">deleted_at</text>
+<rect x="1325" y="217" width="250" height="126" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 1325 247 L 1575 247" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="1325" y="217" width="250" height="30" rx="6" fill="#2215D6"/>
+<path d="M 1325 247 L 1575 247" stroke="#2215D6" stroke-width="1.2"/>
+<text x="1450" y="237" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">EventEditLog</text>
+<text x="1335" y="264" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="1565" y="264" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="1335" y="282" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">event_id</text>
+<text x="1565" y="282" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="1335" y="300" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">organiser_id</text>
+<text x="1565" y="300" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="1335" y="318" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">changes (jsonb)</text>
+<text x="1335" y="336" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">changed_at</text>
+<rect x="25" y="507" width="250" height="126" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 25 537 L 275 537" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="25" y="507" width="250" height="30" rx="6" fill="#2215D6"/>
+<path d="M 25 537 L 275 537" stroke="#2215D6" stroke-width="1.2"/>
+<text x="150" y="527" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">ProgrammeItem</text>
+<text x="35" y="554" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="265" y="554" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="35" y="572" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">event_id</text>
+<text x="265" y="572" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="35" y="590" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">sort_order</text>
+<text x="35" y="608" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">title</text>
+<text x="35" y="626" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">time</text>
+<rect x="300" y="500" width="260" height="180" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 300 530 L 560 530" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="300" y="500" width="260" height="30" rx="6" fill="#2215D6"/>
+<path d="M 300 530 L 560 530" stroke="#2215D6" stroke-width="1.2"/>
+<text x="430" y="520" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">TicketType</text>
+<text x="310" y="547" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="550" y="547" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="310" y="565" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">event_id</text>
+<text x="550" y="565" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="310" y="583" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">name</text>
+<text x="310" y="601" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">price_minor_units</text>
+<text x="310" y="619" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">currency</text>
+<text x="310" y="637" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">quantity_total</text>
+<text x="310" y="655" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">quantity_confirmed</text>
+<text x="310" y="673" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">quantity_held</text>
+<rect x="695" y="491" width="270" height="198" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 695 521 L 965 521" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="695" y="491" width="270" height="30" rx="6" fill="#2215D6"/>
+<path d="M 695 521 L 965 521" stroke="#2215D6" stroke-width="1.2"/>
+<text x="830" y="511" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Registration</text>
+<text x="705" y="538" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="955" y="538" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="705" y="556" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">event_id</text>
+<text x="955" y="556" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="705" y="574" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">ticket_type_id</text>
+<text x="955" y="574" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="705" y="592" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">unique_reference</text>
+<text x="955" y="592" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<text x="705" y="610" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">attendee_name</text>
+<text x="705" y="628" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">attendee_email</text>
+<text x="705" y="646" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">attendee_phone</text>
+<text x="705" y="664" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">status</text>
+<text x="705" y="682" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">idempotency_key</text>
+<text x="955" y="682" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<rect x="1105" y="488" width="250" height="144" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 1105 518 L 1355 518" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="1105" y="488" width="250" height="30" rx="6" fill="#2215D6"/>
+<path d="M 1105 518 L 1355 518" stroke="#2215D6" stroke-width="1.2"/>
+<text x="1230" y="508" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">StaffToken</text>
+<text x="1115" y="535" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="1345" y="535" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="1115" y="553" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">event_id</text>
+<text x="1345" y="553" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="1115" y="571" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">token_hash</text>
+<text x="1345" y="571" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<text x="1115" y="589" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">label</text>
+<text x="1115" y="607" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">expires_at</text>
+<text x="1115" y="625" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">revoked_at</text>
+<rect x="300" y="800" width="260" height="180" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 300 830 L 560 830" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="300" y="800" width="260" height="30" rx="6" fill="#2215D6"/>
+<path d="M 300 830 L 560 830" stroke="#2215D6" stroke-width="1.2"/>
+<text x="430" y="820" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Payment</text>
+<text x="310" y="847" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="550" y="847" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="310" y="865" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">registration_id</text>
+<text x="550" y="865" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="310" y="883" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">provider_reference</text>
+<text x="550" y="883" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<text x="310" y="901" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">expected_amount_minor_units</text>
+<text x="310" y="919" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">currency</text>
+<text x="310" y="937" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">status</text>
+<text x="310" y="955" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">verified_at</text>
+<text x="310" y="973" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">requires_reconciliation</text>
+<rect x="695" y="808" width="270" height="144" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 695 838 L 965 838" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="695" y="808" width="270" height="30" rx="6" fill="#2215D6"/>
+<path d="M 695 838 L 965 838" stroke="#2215D6" stroke-width="1.2"/>
+<text x="830" y="828" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">CheckIn</text>
+<text x="705" y="855" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="955" y="855" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="705" y="873" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">registration_id</text>
+<text x="955" y="873" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="705" y="891" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">organiser_id</text>
+<text x="955" y="891" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="705" y="909" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">staff_token_id</text>
+<text x="955" y="909" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="705" y="927" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">checked_in_at</text>
+<text x="705" y="945" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">is_override</text>
+<rect x="1100" y="799" width="260" height="162" rx="6" fill="#FFFFFF" stroke="#C9C5D0" stroke-width="1.2"/>
+<path d="M 1100 829 L 1360 829" stroke="#C9C5D0" stroke-width="1.2"/>
+<rect x="1100" y="799" width="260" height="30" rx="6" fill="#2215D6"/>
+<path d="M 1100 829 L 1360 829" stroke="#2215D6" stroke-width="1.2"/>
+<text x="1230" y="819" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">AttendeeRequest</text>
+<text x="1110" y="846" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">id</text>
+<text x="1350" y="846" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">PK</text>
+<text x="1110" y="864" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">registration_id</text>
+<text x="1350" y="864" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">FK</text>
+<text x="1110" y="882" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">message</text>
+<text x="1110" y="900" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">status</text>
+<text x="1110" y="918" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">resolution_notes</text>
+<text x="1110" y="936" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">idempotency_key</text>
+<text x="1350" y="936" text-anchor="end" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#2215D6">UK</text>
+<text x="1110" y="954" font-family="system-ui, sans-serif" font-size="12" fill="#1B1B1F">resolved_at</text>
+
+
+<text x="40" y="990" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#1B1B1F">Legend</text>
+<text x="120" y="990" font-family="system-ui, sans-serif" font-size="11" fill="#1B1B1F">PK primary key&#160;&#160;·&#160;&#160;UK unique&#160;&#160;·&#160;&#160;FK foreign key&#160;&#160;·&#160;&#160;1:N one-to-many</text>
+<text x="40" y="1008" font-family="system-ui, sans-serif" font-size="11" fill="#1B1B1F">Referential actions (onDelete): Event→Organiser R · Event→ProgrammeItem/TicketType/StaffToken C · Registration→Event/TicketType R · Registration→Payment/CheckIn/AttendeeRequest R</text>
+<text x="40" y="1026" font-family="system-ui, sans-serif" font-size="11" fill="#1B1B1F">SQL-only guarantees (not expressible in Prisma): CHECK constraints · partial UNIQUE (one success Payment per Registration) · forbidden-transition &amp; append-only triggers</text>
+</svg>
